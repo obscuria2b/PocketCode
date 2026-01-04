@@ -18,59 +18,72 @@
 
 ---
 
-## Setup (One Time)
+## ⚡ Option A: Quick Setup (2 Commands)
 
-Open Termux and run each block:
+> **Choose this OR Option B below — not both!**
 
-**1. Update Termux**
+**In Termux, run:**
+```
+pkg update -y && pkg upgrade -y && pkg install proot-distro -y && proot-distro install debian && proot-distro login debian
+```
+
+**Inside Linux (after prompt shows `root@localhost`), run:**
+```
+apt update && apt install curl git build-essential python3 -y && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install nodejs -y && curl -fsSL https://opencode.ai/install | bash && echo 'alias opencode-web="opencode web --hostname 127.0.0.1 --port 4096"' >> ~/.bashrc && source ~/.bashrc
+```
+
+✅ **Done!** Skip to [How to Use](#how-to-use).
+
+---
+
+## 📝 Option B: Step-by-Step Setup
+
+> **Skip this if you already did Option A above.**
+
+Open Termux and run each command. Copy one block at a time.
+
+**Step 1: Update Termux**
 ```
 pkg update -y && pkg upgrade -y
 ```
 
-**2. Install Linux**
+**Step 2: Install Linux**
 ```
-pkg install proot-distro -y
-proot-distro install debian
+pkg install proot-distro -y && proot-distro install debian
 ```
 
-**3. Enter Linux**
+**Step 3: Enter Linux**
 ```
 proot-distro login debian
 ```
-*(Your prompt should show `root@localhost`)*
+Your prompt should now show `root@localhost`
 
-**4. Install Tools**
+**Step 4: Install Tools**
 ```
 apt update && apt install curl git build-essential python3 -y
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-apt install nodejs -y
 ```
 
-**5. Install OpenCode**
 ```
-npm install -g opencode-ai --ignore-scripts --omit=dev
-cd $(npm root -g)/opencode-ai/node_modules
-npm pack opencode-linux-arm64
-tar -xvzf opencode-linux-arm64-*.tgz
-rm -rf opencode-android-arm64
-mv package opencode-android-arm64
-rm opencode-linux-arm64-*.tgz
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install nodejs -y
 ```
 
-**6. Create Shortcut**
+**Step 5: Install OpenCode**
 ```
-echo 'alias opencode-web="opencode web --hostname 127.0.0.1 --port 4096"' >> ~/.bashrc
-source ~/.bashrc
+curl -fsSL https://opencode.ai/install | bash
 ```
 
-✅ **Done!** Setup complete.
+**Step 6: Create Shortcut**
+```
+echo 'alias opencode-web="opencode web --hostname 127.0.0.1 --port 4096"' >> ~/.bashrc && source ~/.bashrc
+```
+
+✅ **Setup complete!**
 
 ---
 
 ## How to Use
 
-Every time you open Termux:
-
+Every time you open Termux, run:
 ```
 proot-distro login debian
 ```
@@ -86,7 +99,6 @@ Then start the AI:
 
 **Preview websites:**
 ```
-cd ~/my-project
 python3 -m http.server 8080
 ```
 Then open Chrome → `localhost:8080`
@@ -106,24 +118,24 @@ Then open Chrome → `localhost:8080`
 
 ⚠️ **Uninstalling Termux deletes everything.**
 
-**Local Backup:**
+**Local Backup** (run from Termux, not inside Linux):
 ```
 exit
+```
+```
+termux-setup-storage
+```
+```
 tar -czvf ~/storage/downloads/pocketcode-backup.tar.gz ~/.proot-distro/
 ```
-*(First run `termux-setup-storage` if prompted)*
 
 **GitHub Sync:**
 ```
-ssh-keygen -t ed25519
-cat ~/.ssh/id_ed25519.pub
+ssh-keygen -t ed25519 && cat ~/.ssh/id_ed25519.pub
 ```
 Add the key to [GitHub](https://github.com/settings/keys), then:
 ```
-cd ~/my-project
-git init && git add . && git commit -m "save"
-git remote add origin git@github.com:YOU/project.git
-git push -u origin main
+cd ~/my-project && git init && git add . && git commit -m "save" && git remote add origin git@github.com:YOU/project.git && git push -u origin main
 ```
 
 ---
